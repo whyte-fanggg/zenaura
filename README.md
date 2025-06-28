@@ -1,65 +1,68 @@
-🕊️ Zenaura
-A serene, pastel origami-inspired Pomodoro timer web app with motivational quotes, calming audio playback, and AI transcription integration. Built as a clean, recruiter-grade portfolio project to showcase modern frontend skills, API integration, and unique UI aesthetics.
+# 🕊️ Zenaura
 
-🌟 Project Summary
-Zenaura combines productivity and calm focus in an elegant single-page app. Its Origami UI reflects folded paper aesthetics with pastel colors to create a peaceful user experience.
+Zenaura is a serene, origami-inspired **Pomodoro timer web app** with motivational quotes, calming audio, and AI transcription integration.
 
-🎯 Key Features
-✅ Pomodoro Timer with presets (5, 25, 50 min) and custom durations
-✅ Motivational Quotes rotating every 10s for focus encouragement
-✅ Calming Audio Player with play/pause controls (mocked AssemblyAI usage)
-✅ AssemblyAI Transcription Integration (speech-to-text API demonstration)
-✅ Firebase Firestore for session logging and persistence
-✅ Responsive Origami UI Design with folded card visuals
-✅ Framer Motion subtle animations for entrance and interactions
-✅ Browser Notifications when timer completes
-✅ Audio alert beep on timer completion
+---
 
-🛠️ Tech Stack
-Tech	            Purpose
-React	            Frontend framework
-Vite	            Build tool
-TypeScript	      Static typing
-Framer Motion	    Animations and transitions
-Firebase	        Firestore database for sessions
-AssemblyAI	      Speech-to-text transcription
-Pure CSS	        Styling (no Tailwind used)
+## 🚀 Live Demo
 
-🎨 Design & Theme
-Theme: Origami UI
+[Click here to view Zenaura on Vercel](https://zenaura-silk.vercel.app/)
 
-Palette: Pastel lavender, blue, and yellow on soft paper white
+---
 
-Font: Libre Baskerville for a classic, calm aesthetic
+## ✨ Features
 
-Layout: Folded-card feel with subtle drop shadows and corner fold accents
+- Pomodoro timer (5, 25, 50 mins + custom)
+- Motivational quotes rotating every 10s
+- Calming background audio player (play/pause)
+- AssemblyAI speech-to-text transcription demo
+- Firebase Firestore integration for session logging
+- Browser notification and audio alert on timer completion
+- Origami-inspired pastel UI with folded card visuals
+- Fully responsive layout with subtle Framer Motion animations
 
-Responsiveness: Fully mobile-friendly with clean alignment
+---
 
-🚀 Live Demo
+## 🛠️ Tech Stack
+
+- React + Vite + TypeScript
+- Framer Motion
+- AssemblyAI API
+- Firebase Firestore
+- Pure CSS
+
+---
+
+## 📸 Screenshots
+
+![Screenshot 2025-06-28 005745](https://github.com/user-attachments/assets/9d20f82d-f8cb-479e-800e-3c875b0d3048)
+
+![image](https://github.com/user-attachments/assets/efd06375-058d-4121-b725-693fa008716d)
+
+![image](https://github.com/user-attachments/assets/a431c449-e86c-4022-9de9-d9d36aa96b5e)
+
+![image](https://github.com/user-attachments/assets/77280cde-26d8-4b3f-ac90-a0bf3fef79ec)
 
 
-📸 Screenshots
-![image](https://github.com/user-attachments/assets/9dc5aac4-4081-4073-ad92-211de7c90916)
+---
 
+## ⚙️ Setup & Installation
 
-⚙️ Installation & Setup
+1. **Clone the repo**
 
-**Clone the repository**
-
+```bash
 git clone https://github.com/whyte-fanggg/zenaura.git
 cd zenaura
+```
+2. **Install dependencies**
 
-**Install dependencies**
+```bash
 npm install
+```
+4. **Add your Firebase config**
 
-**Add Firebase Configuration**
-
-Go to Firebase Console.
-Create a project and Firestore database.
-Copy your config object.
-Replace the placeholder in src/services/FirebaseService.ts:
-
+In src/services/FirebaseService.ts:
+```bash
 const firebaseConfig = {
   apiKey: "YOUR_KEY",
   authDomain: "YOUR_DOMAIN",
@@ -68,48 +71,95 @@ const firebaseConfig = {
   messagingSenderId: "YOUR_ID",
   appId: "YOUR_APP_ID",
 };
+```
+6. **Add AssemblyAI API key**
 
-**Add AssemblyAI API Key**
-Sign up at AssemblyAI.
-Get your API key from Dashboard → API Keys.
-Replace the placeholder in src/services/AssemblyAIService.ts:
+In src/services/AssemblyAIService.ts:
+```bash
 authorization: "YOUR_ASSEMBLYAI_API_KEY",
+```
+8. **Run locally**
 
-**Run the development server**
+```bash
 npm run dev
+```
+10. **Build for production**
 
-**Build for production**
+```bash
 npm run build
 npm run preview
+```
 
-💻 Project Structure
-zenaura/
-├── public/
-│   └── favicon.png
-├── src/
-│   ├── components/
-│   │   ├── AudioPlayer.tsx
-│   │   ├── AudioTranscribe.tsx
-│   │   ├── ControlsPanel.tsx
-│   │   ├── Logo.tsx
-│   │   ├── MotivationQuote.tsx
-│   │   ├── SessionStats.tsx
-│   │   └── TimerCircle.tsx
-│   ├── services/
-│   │   ├── AssemblyAIService.ts
-│   │   └── FirebaseService.ts
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── index.css
-├── package.json
-└── vite.config.ts
 
-✨ Contributing
-This is a personal portfolio project. Forking is welcome for learning purposes.
+---
 
-📝 License
-MIT License.
 
-👤 Author
+## 🎨 Design
+
+Pastel origami-inspired UI using:
+- Soft paper white background (#FAFAFA)
+- Accent lavender (#CBA0E3)
+- Accent blue (#A8D8F0)
+- Highlight yellow (#FFF3B0)
+- Libre Baskerville font
+
+
+---
+
+
+## 📂 Project Structure
+
+```plaintext
+
+public/
+├── favicon.ico
+├── vite.svg
+
+src/
+├── assets/
+│   └── react.svg
+├── components/
+│   ├── AudioPlayer.tsx
+│   ├── AudioTranscribe.tsx
+│   ├── ControlsPanel.tsx
+│   ├── Logo.tsx
+│   ├── MotivationQuote.tsx
+│   ├── SessionStats.tsx
+│   └── TimerCircle.tsx
+├── services/
+│   ├── AssemblyAIService.ts
+│   └── FirebaseService.ts
+├── App.tsx
+├── index.css
+├── main.tsx
+├── theme.ts
+└── vite-env.d.ts
+
+.gitignore
+.eslint.config.js
+index.html
+package-lock.json
+package.json
+README.md
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+
+```
+
+---
+
+
+## 📝 License
+MIT
+
+
+---
+
+
+## 👤 Author
+
 Stephen Francis Chintalapudi
-https://github.com/whyte-fanggg
+
+[Github](https://github.com/whyte-fanggg)
