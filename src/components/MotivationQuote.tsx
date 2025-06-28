@@ -1,26 +1,35 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react"
 
-function MotivationQuote() {
+const quotes = [
+  "Focus on what matters.",
+  "Breathe. Begin. Believe.",
+  "Stay calm and keep working.",
+  "Small steps build big dreams.",
+]
+
+const MotivationQuote = () => {
+  const [quoteIndex, setQuoteIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setQuoteIndex((prev) => (prev + 1) % quotes.length)
+    }, 10000) // rotate every 10s
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
-    <motion.div
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 0.5 }}
+    <p
       style={{
-        width: "200px",
-        height: "200px",
-        borderRadius: "50%",
-        background: "#CBA0E3",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "2rem",
-        color: "#333333"
+        backgroundColor: "#FFF3B0",
+        padding: "0.5em 1em",
+        borderRadius: "4px",
+        fontStyle: "italic",
       }}
     >
-      25:00
-    </motion.div>
-  );
+      {quotes[quoteIndex]}
+    </p>
+  )
 }
 
-export default MotivationQuote;
+export default MotivationQuote

@@ -1,26 +1,32 @@
-import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 
-function AudioPlayer() {
+const AudioPlayer = () => {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const toggleAudio = () => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+      audioRef.current.loop = true; // Optional: loop the audio
+      audioRef.current.addEventListener("ended", () => {
+        setIsPlaying(false);
+      });
+    }
+
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
   return (
-    <motion.div
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 0.5 }}
-      style={{
-        width: "200px",
-        height: "200px",
-        borderRadius: "50%",
-        background: "#CBA0E3",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "2rem",
-        color: "#333333"
-      }}
-    >
-      25:00
-    </motion.div>
+    <div>
+      <button onClick={toggleAudio}>{isPlaying ? "Pause Audio" : "Play Audio"}</button>
+    </div>
   );
-}
+};
 
 export default AudioPlayer;

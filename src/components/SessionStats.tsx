@@ -1,26 +1,31 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { db } from "../services/FirebaseService";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
-function SessionStats() {
+const SessionStats = () => {
+  const [sessions, setSessions] = useState<number>(0);
+
+  useEffect(() => {
+    const fetchSessions = async () => {
+      const querySnapshot = await getDocs(collection(db, "sessions"));
+      setSessions(querySnapshot.size);
+    };
+    fetchSessions();
+  }, []);
+
+  const addSession = async () => {
+    await addDoc(collection(db, "sessions"), {
+      timestamp: new Date(),
+    });
+    setSessions((prev) => prev + 1);
+  };
+
   return (
-    <motion.div
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 0.5 }}
-      style={{
-        width: "200px",
-        height: "200px",
-        borderRadius: "50%",
-        background: "#CBA0E3",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "2rem",
-        color: "#333333"
-      }}
-    >
-      25:00
-    </motion.div>
+    <div>
+      <p>Pomodoro Sessions Completed: {sessions}</p>
+      <button onClick={addSession}>Add Session</button>
+    </div>
   );
-}
+};
 
 export default SessionStats;

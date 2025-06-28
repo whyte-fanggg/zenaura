@@ -1,26 +1,23 @@
-import { motion } from "framer-motion";
-
-function Logo() {
+const Logo = () => {
   return (
-    <motion.div
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 0.5 }}
-      style={{
-        width: "200px",
-        height: "200px",
-        borderRadius: "50%",
-        background: "#CBA0E3",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "2rem",
-        color: "#333333"
-      }}
-    >
-      25:00
-    </motion.div>
+    <div style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "0.5em"
+    }}>
+      <span style={{ fontSize: "1.5em" }}>🕊️</span> {/* Dove emoji as origami style placeholder */}
+      <h2 style={{
+        color: "#CBA0E3",
+        fontWeight: "bold",
+        fontSize: "1.8em",
+        margin: 0,
+        fontFamily: "'Libre Baskerville', serif"
+      }}>
+        Zenaura
+      </h2>
+    </div>
   );
-}
+};
 
 export default Logo;
